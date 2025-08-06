@@ -11,6 +11,11 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("A user disconnected");
   });
+
+  socket.on("message", (msg) => {
+    console.log("Message received:", msg);
+    io.emit("message", msg); 
+  });
 });
 
 const PORT =  3000;
